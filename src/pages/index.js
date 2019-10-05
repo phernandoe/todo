@@ -1,3 +1,11 @@
-import React from "react"
+import React from "react";
 
-export default () => <div>Hello world!</div>
+import Layout from '../components/Layout';
+import Input from '../components/Input';
+
+export default () => (
+  <Layout>
+    <Input />
+  </Layout>
+);
+

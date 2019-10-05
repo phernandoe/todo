@@ -6,11 +6,11 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -o",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "jest"
   },
   "dependencies": {
     "gatsby": "^2.15.29",
@@ -18,7 +18,12 @@
     "react-dom": "^16.10.2"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.17",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.10.2"
   },
   "repository": {
     "type": "git",
