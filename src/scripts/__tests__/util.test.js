@@ -15,3 +15,5 @@ test('parseInput 1 with argument', () => {
 test('parseInput with no arguments', () => {
   expect(parseInput()).toEqual( [] );
 });
+
+//TODO: Add test to get rid of whitespace
