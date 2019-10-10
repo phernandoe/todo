@@ -1,7 +1,13 @@
 const parseInput = require('../util');
 
+//Run npm run test
+
 test('parseInput with 3 arguments', () => {
-  expect(parseInput('add todo -o')).toEqual( ['add', 'todo', '-o'] );
+  expect(parseInput('add todo -o')).toEqual( ['add', 'todo -o'] );
+});
+
+test('parseInput with 3 arguments', () => {
+  expect(parseInput('add make food')).toEqual( ['add', 'make food'] );
 });
 
 test('parseInput 2 with arguments', () => {
@@ -16,4 +22,10 @@ test('parseInput with no arguments', () => {
   expect(parseInput()).toEqual( [] );
 });
 
-//TODO: Add test to get rid of whitespace
+test('parseInput with extra space', () => {
+  expect(parseInput('   add  todo    -o   ')).toEqual( ['add', 'todo -o'] );
+});
+
+//Check for commands
+
+//TODO: Check for flags
