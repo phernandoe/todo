@@ -4,12 +4,24 @@ const parseInput = require('../scripts/util');
 const Input = ({addTodo}) => {
 
   const [input, setInput] = useState('');
-  const placeholder = "add cook -r";
+  const placeholder = "add take out trash";
+
+  const delegateAction = i => {
+    
+    switch (i[0]) {
+      case 'add':
+        addTodo((prevTodos) => [...prevTodos, i[1]]);
+        break;
+
+      default:
+        alert('Unknown command');
+        break;
+    }
+  }
   
   const onSubmit = e => {
     e.preventDefault();
-    console.log(parseInput(input));
-    addTodo((prevTodos) => [...prevTodos, input]);
+    delegateAction(parseInput(input));
     setInput('');
   }
 
@@ -25,6 +37,7 @@ const Input = ({addTodo}) => {
       placeholder={placeholder} 
       onChange={onChange}
       value={input}
+      autoComplete="off"
       type="text" />
 
     </form>
