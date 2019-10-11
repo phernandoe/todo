@@ -3,16 +3,17 @@ import Todo from './Todo';
 
 const TodoList = ({todos}) => {
 
-  let id = 0;
-
   return (
     <ul className="todos">
-      {todos.map( todo => {
+      <div className="list-header"> 
+        <h3 className="title-header">Title</h3>
+        <h3 className="id-header">ID</h3>
+      </div>
 
-        id++;
+      {todos.map( todo => {
         return (
-          <li key={id}>
-            <Todo name={todo} id={id}/>
+          <li key={todo.id}>
+            <Todo todo={todo}/>
           </li>
         )
 

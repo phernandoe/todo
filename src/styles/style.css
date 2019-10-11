@@ -23,7 +23,7 @@ body {
 }
 
 .input {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 
@@ -45,16 +45,20 @@ body {
   list-style: none;
 }
 
-.list-item {
+.list-item, .list-header {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   width: 100%;
 }
 
-.title, .id {
+.title-header, .id-header {
+  opacity: .5;
+}
+
+.title, .id, .title-header, .id-header {
   font-weight: 300;
 }
 
-.id {
+.id, .id-header {
   margin-left: auto;
 }

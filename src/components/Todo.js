@@ -1,18 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Todo = ({name, id}) => {
-
-  const emptyTodo = {
-    id: id,
-    title: name,
-    completed: false
-  };
-
-  const [todo, setTodo] = useState(emptyTodo);
-
-  useEffect(() => {
-    setTodo({id: id, title:name, completed: false});
-  }, [name, id]);
+const Todo = ({todo}) => {
 
   return (
     <div className="todo list-item"> 

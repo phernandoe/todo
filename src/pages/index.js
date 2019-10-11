@@ -6,11 +6,17 @@ import TodoList from '../components/TodoList';
 
 export default () => {
 
-  const [todos, setTodos] = useState(['Hello', 'World']);
+  const initialTodo = {
+    id: 0,
+    title: 'Hello World',
+    completed: false
+  };
+
+  const [todos, setTodos] = useState([initialTodo]);
 
   return (
     <Layout>
-      <Input addTodo={setTodos} todos={todos}/>
+      <Input setTodos={setTodos} todos={todos}/>
       <TodoList todos={todos} />
     </Layout>
   );

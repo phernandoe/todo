@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 const parseInput = require('../scripts/util');
 
-const Input = ({addTodo}) => {
+const Input = ({setTodos, todos}) => {
 
   const [input, setInput] = useState('');
   const placeholder = "add take out trash";
+
+  const createTodo = name => {
+    return ( {
+      id: todos.length,
+      title: name,
+      completed: false
+    })
+  }
+
+  const deleteTodo = id => {
+    id = parseInt(id);
+    setTodos( (prevTodos) => prevTodos.filter( (todo) => todo.id !== id ) );
+  }
 
   const delegateAction = i => {
     
     switch (i[0]) {
       case 'add':
-        addTodo((prevTodos) => [...prevTodos, i[1]]);
+        setTodos((prevTodos) => [...prevTodos, createTodo(i[1])]);
+        break;
+
+      case 'del':
+        deleteTodo(i[1]);
         break;
 
       default:
@@ -29,6 +46,7 @@ const Input = ({addTodo}) => {
 
   return (
     <form onSubmit={onSubmit} className="input">
+
       <label htmlFor="command">></label>
 
       <input 
