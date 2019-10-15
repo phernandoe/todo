@@ -14,16 +14,44 @@ body {
   color: #69e584;
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  align-items: stretch;
 }
 
 #main-content {
   margin-top: 100px;
   font-size: 2rem;
   font-family: 'Courier New', Courier, monospace;
+  max-width: 500px;
+}
+
+.container {
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  margin: 2em;
+  transition: opacity 150ms ease-in-out;
+}
+
+footer > h4 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 300;
+}
+
+footer:hover {
+  opacity: 1;
 }
 
 .input {
   margin-bottom: 25px;
+  padding: 0.5em;
+  border-radius: 10px;
+  transition: background-color 150ms ease-in-out;
 }
 
 
@@ -36,9 +64,17 @@ body {
   margin-left: 0.25em;
 }
 
+.command::placeholder {
+  color: #69e584;
+  opacity: .5;
+}
+
 .command:focus {
   outline: none;
-  border-bottom: 2px solid #69e584;
+}
+
+.input:hover, .input:focus-within {
+  background-color: rgba(255,255,255,0.075);
 }
 
 .todos {
@@ -57,6 +93,12 @@ body {
 
 .title, .id, .title-header, .id-header {
   font-weight: 300;
+}
+
+.title {
+  overflow: hidden;
+  width: 375px;
+  text-overflow: ellipsis;
 }
 
 .id, .id-header {
