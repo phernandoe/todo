@@ -12,11 +12,22 @@ const Input = ({setTodos, todos}) => {
       title: name,
       completed: false
     })
-  }
+  };
 
   const deleteTodo = id => {
     id = parseInt(id);
     setTodos( (prevTodos) => prevTodos.filter( (todo) => todo.id !== id ) );
+  };
+
+  const renameTodo = (id, newTitle) => {
+    id = parseInt(id);
+    console.log(id, newTitle);
+    setTodos( (prevTodos) => Array.from(prevTodos, todo => {
+      if (todo.id === id) {
+        todo.title = newTitle;
+      }
+      return todo;
+    }))
   }
 
   const delegateAction = i => {
@@ -28,6 +39,11 @@ const Input = ({setTodos, todos}) => {
 
       case 'del':
         deleteTodo(i[1]);
+        break;
+
+      case 'rn':
+        const args = i[1].split(' ');
+        renameTodo(args[0], args[1]);
         break;
 
       default:
