@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Input from '../components/Input';
 import TodoList from '../components/TodoList';
 import Footer from '../components/Footer';
+import Help from '../components/Help';
 
 export default () => {
 
@@ -21,6 +22,7 @@ export default () => {
         <Input setTodos={setTodos} todos={todos}/>
         <TodoList todos={todos} />
       </Layout>
+      <Help />
       <Footer />  
     </>
   );

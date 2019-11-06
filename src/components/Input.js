@@ -19,31 +19,51 @@ const Input = ({setTodos, todos}) => {
     setTodos( (prevTodos) => prevTodos.filter( (todo) => todo.id !== id ) );
   };
 
+  const toggleCompleteTodo = id => {
+    id = parseInt(id);
+    setTodos( (prevTodos) => Array.from(prevTodos, todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    }))
+  };
+
   const renameTodo = (id, newTitle) => {
     id = parseInt(id);
-    console.log(id, newTitle);
     setTodos( (prevTodos) => Array.from(prevTodos, todo => {
       if (todo.id === id) {
         todo.title = newTitle;
       }
       return todo;
     }))
-  }
+  };
 
   const delegateAction = i => {
     
     switch (i[0]) {
       case 'add':
-        setTodos((prevTodos) => [...prevTodos, createTodo(i[1])]);
+        setTodos((prevTodos) => [createTodo(i[1]),...prevTodos]);
         break;
 
       case 'del':
         deleteTodo(i[1]);
         break;
 
+      case 'com':
+        toggleCompleteTodo(i[1]);
+        break;
+
       case 'rn':
         const args = i[1].split(' ');
-        renameTodo(args[0], args[1]);
+        const todoId = args.shift();
+        const newTodoName = args.join(' ');
+
+        if (isNaN(todoId)) {
+          alert('First command must be todo ID');
+          break;
+        }
+        renameTodo(todoId, newTodoName);
         break;
 
       default:
