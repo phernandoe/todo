@@ -47,7 +47,23 @@ footer {
   text-align: right;
 }
 
+.help-button {
+  --size: 50px;
+  width: var(--size);
+  height: var(--size);
+  color: #69e584;
+  transition: background-color 150ms ease-in-out;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 100%;
+  font-size: 3rem;
+  font-family: 'Courier New', Courier, monospace;
+  outline: none;
+}
+
 .help-commands {
+  cursor: default;
   transition: color 150ms ease-in-out;
 }
 
@@ -107,8 +123,12 @@ footer:hover {
   outline: none;
 }
 
-.input:hover, .input:focus-within {
+.input:hover, .input:focus-within, .help-button:hover, .help-button:focus {
   background-color: rgba(255,255,255,0.075);
+}
+
+.help-button:active {
+  background-color: rgba(255,255,255,0.15);
 }
 
 .todos {
