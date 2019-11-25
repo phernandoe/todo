@@ -4,7 +4,7 @@ const parseInput = require('../scripts/util');
 const Input = ({setTodos, todos}) => {
 
   const [input, setInput] = useState('');
-  const placeholder = "add take out trash";
+  const placeholder = "add todo";
 
   const createTodo = name => {
     return ( {

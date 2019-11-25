@@ -10,7 +10,7 @@ export default () => {
 
   const initialTodo = {
     id: 0,
-    title: 'Hello World',
+    title: 'Deploy App',
     completed: false
   };
 
